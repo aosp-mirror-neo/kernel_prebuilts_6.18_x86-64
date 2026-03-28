@@ -171,6 +171,7 @@ __mdiobus_read
 __mdiobus_register
 __mdiobus_write
 __media_device_register
+__mei_cldev_driver_register
 __memmove
 __memset
 __mmap_lock_do_trace_acquire_returned
@@ -263,6 +264,7 @@ __tasklet_schedule
 __tb_ring_enqueue
 __trace_set_current_state
 __trace_trigger_soft_disabled
+__traceiter_android_rvh_iommu_limit_align_shift
 __traceiter_dma_fence_emit
 __traceiter_gpu_mem_total
 __traceiter_mmap_lock_acquire_returned
@@ -272,6 +274,7 @@ __traceiter_read_msr
 __traceiter_sched_set_state_tp
 __traceiter_write_msr
 __traceiter_xdp_exception
+__tracepoint_android_rvh_iommu_limit_align_shift
 __tracepoint_dma_fence_emit
 __tracepoint_gpu_mem_total
 __tracepoint_mmap_lock_acquire_returned
@@ -367,6 +370,8 @@ _raw_write_unlock
 _raw_write_unlock_irq
 _raw_write_unlock_irqrestore
 _snd_ctl_add_follower
+_trace_android_vh_pcpu_rwsem_lock_acquired
+_trace_android_vh_pcpu_rwsem_lock_released
 accel_open
 acpi_acquire_mutex
 acpi_bus_generate_netlink_event
@@ -482,6 +487,7 @@ alloc_netdev_mqs
 alloc_workqueue_noprof
 allocate_resource
 amd_get_boost_ratio_numerator
+android_rvh_probe_register
 anon_inode_getfd
 arc4_crypt
 arc4_setkey
@@ -620,6 +626,7 @@ cec_notifier_conn_unregister
 cec_notifier_set_phys_addr
 cec_received_msg_ts
 cec_register_adapter
+cec_s_conn_info
 cec_s_log_addrs
 cec_s_phys_addr
 cec_transmit_attempt_done_ts
@@ -1123,7 +1130,11 @@ drm_atomic_state_init
 drm_av_sync_delay
 drm_calc_timestamping_constants
 drm_clflush_virt_range
+drm_client_dev_resume
+drm_client_dev_suspend
+drm_client_dev_unregister
 drm_color_lut_check
+drm_colorop_set_next_property
 drm_compat_ioctl
 drm_connector_atomic_hdr_metadata_equal
 drm_connector_attach_colorspace_property
@@ -1337,8 +1348,12 @@ drm_panel_remove_follower
 drm_panel_unprepare
 drm_plane_add_size_hints_property
 drm_plane_cleanup
+drm_plane_colorop_3dlut_init
+drm_plane_colorop_ctm_3x4_init
+drm_plane_colorop_curve_1d_lut_init
 drm_plane_create_alpha_property
 drm_plane_create_blend_mode_property
+drm_plane_create_color_pipeline_property
 drm_plane_create_color_properties
 drm_plane_create_rotation_property
 drm_plane_create_scaling_filter_property
@@ -1465,6 +1480,7 @@ filemap_splice_read
 filemap_write_and_wait_range
 find_font
 find_iova
+find_vma_intersection
 finish_open
 finish_wait
 firmware_kobj
@@ -1686,6 +1702,7 @@ hid_output_report
 hid_parse_report
 hid_report_raw_event
 hid_unregister_driver
+hmm_range_fault
 hrtimer_active
 hrtimer_cancel
 hrtimer_cb_get_time
@@ -1841,6 +1858,9 @@ intel_tcc_get_offset_mask
 intel_tcc_get_temp
 intel_tcc_get_tjmax
 intel_tcc_set_offset
+interval_tree_insert
+interval_tree_iter_first
+interval_tree_remove
 intlog10
 invalidate_bdev
 invalidate_inode_buffers
@@ -2083,6 +2103,27 @@ media_entity_pipeline
 media_entity_remote_pad_unique
 media_pad_remote_pad_first
 media_pad_remote_pad_unique
+mei_cldev_disable
+mei_cldev_driver_unregister
+mei_cldev_enable
+mei_cldev_get_drvdata
+mei_cldev_recv
+mei_cldev_recv_timeout
+mei_cldev_send
+mei_cldev_send_gsc_command
+mei_cldev_send_timeout
+mei_cldev_set_drvdata
+mei_deregister
+mei_me_dev_init
+mei_me_get_cfg
+mei_me_irq_quick_handler
+mei_me_irq_thread_handler
+mei_me_polling_thread
+mei_register
+mei_restart
+mei_start
+mei_stop
+mei_write_is_idle
 mem_alloc_profiling_key
 memchr
 memchr_inv
@@ -2156,6 +2197,9 @@ mmc_wait_for_cmd
 mmc_wait_for_req
 mmc_wait_for_req_done
 mmput
+mmu_interval_notifier_insert
+mmu_interval_notifier_remove
+mmu_interval_read_begin
 mod_delayed_work_on
 mod_timer
 module_layout
@@ -3423,6 +3467,8 @@ typec_find_power_role
 typec_get_drvdata
 typec_get_negotiated_svdm_version
 typec_match_altmode
+typec_mode_selection_delete
+typec_mode_selection_start
 typec_mux_get_drvdata
 typec_mux_put
 typec_mux_register
@@ -3519,6 +3565,8 @@ usb_autopm_get_interface_no_resume
 usb_autopm_put_interface
 usb_autopm_put_interface_async
 usb_bulk_msg
+usb_check_bulk_endpoints
+usb_check_int_endpoints
 usb_clear_halt
 usb_composite_overwrite_options
 usb_composite_probe
@@ -3548,6 +3596,7 @@ usb_get_dev
 usb_get_from_anchor
 usb_get_function
 usb_get_function_instance
+usb_get_intf
 usb_hcd_check_unlink_urb
 usb_hcd_giveback_urb
 usb_hcd_is_primary_hcd
@@ -3570,6 +3619,7 @@ usb_put_dev
 usb_put_function
 usb_put_function_instance
 usb_put_hcd
+usb_put_intf
 usb_queue_reset_device
 usb_register_dev
 usb_register_driver
